@@ -11,8 +11,11 @@ Uma API de exemplo foi disponibilizada na pasta BACK
 Para rodá-la, faça:
 
 > cd BACK
+
 > npm install
+
 > npm run server
+
 Ela responderá na porta 5000.
 
 
