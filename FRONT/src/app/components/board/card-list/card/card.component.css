@@ -1,0 +1,10 @@
+a{
+    background-color: #142F43;
+}
+button{
+    height: 2.3rem;
+    width: 2.5rem;
+    color: white;
+    background-color: #142F43;
+    border-radius: 5px;
+}
