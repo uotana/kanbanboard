@@ -30,9 +30,13 @@ Lembre-se de setar os headers Accept e ContentType para json em todas as requisi
 A API tem os seguintes entrypoints:
 
 (GET)     http://0.0.0.0:5000/cards/
+  
 (POST)    http://0.0.0.0:5000/cards/
+  
 (PUT)     http://0.0.0.0:5000/cards/{id}
+  
 (DELETE)  http://0.0.0.0:5000/cards/{id}
+  
 GET obtém uma lista de cards.
 
 A API retorna um array com o seguinte formato:
@@ -126,14 +130,25 @@ O projeto deve ser colocado em um repositório GITHUB ou equivalente, estar púb
 A entrega será apenas a URL do repositório.
 
 ### Conceitos a serem avaliados no projeto:
+  
 1.Componentes
+  
 2.Databinding
+  
 3.Diretivas
+  
 4.Formulários
+  
 5.Rotas
+  
 6.Pipes
+  
 7.Services e injeção de dependência
+  
 8.Observables
+  
 9.Requisições HTTP
+  
 10.Autenticação e proteção de rotas
+  
 11.NgModules
