@@ -12,7 +12,7 @@ import { CardsService } from '../../../services/cards.service';
 
 export class CardListComponent implements OnInit {
 
-  @Input() listTitle!:string;
+  @Input() taskListTitle!:string;
   cards!: Card[];
 
   showAddCardButton: boolean = true;
@@ -23,12 +23,13 @@ export class CardListComponent implements OnInit {
   });
   
   constructor(private cardsService: CardsService ) { 
-    console.log('constructor CARD LIST');
+    console.log('-----------------------------------------------');
+    console.log(`>> card-list ${this.taskListTitle} constructor`);
   }
 
   ngOnInit(): void {
-    console.log('onInit CARD LIST')
-    console.log(`listTitle ${this.listTitle}`)
+    console.log('-----------------------------------------------');
+    console.log(`>> card-list ${this.taskListTitle} onInit`)
 
     this.cardsService.getCards().subscribe((data:Card[])=>{
       this.cards = data;
@@ -36,7 +37,7 @@ export class CardListComponent implements OnInit {
 
     this.cardsService.cardListChanged.subscribe(()=>{
       this.cardsService.getCards().subscribe((data:Card[])=>{
-        console.log('updating cards - CARD LIST');
+        console.log('>> updating cards');
         this.cards = data;
         console.log('subscribe data');
         console.log(data);
@@ -45,12 +46,14 @@ export class CardListComponent implements OnInit {
   }
 
   toggleAddCardButton(){
+    console.log('-----------------------------------------------');
+    console.log(`>> on toggleAddCardButton`);
     this.showAddCardButton = !this.showAddCardButton;
   }
 
   createCard(){
-    console.log('create card - CARD LIST');
-    console.log(this.cardForm.value.title);
+    console.log('-----------------------------------------------');
+    console.log(`>> on card-list createCard ${this.cardForm.value.title}`);
     this.cardsService.createCard(this.cardForm.value.title, this.cardForm.value.description).subscribe(()=>{
       this.cardsService.getCards().subscribe((data: Card[])=>{
         this.cards = data;
