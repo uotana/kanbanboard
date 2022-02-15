@@ -10,7 +10,7 @@ import { CardsService} from '../../../../services/cards.service';
 })
 export class CardComponent implements OnInit {
 
-  @Input() listTitle!:string;
+  @Input() currentList!:string;
   @Input() card!: Card;
   @Input() editMode: boolean = false;
 
@@ -23,24 +23,33 @@ export class CardComponent implements OnInit {
 
   constructor(
     private cardsService: CardsService,
-    ) { 
-      console.log('constructor card');
+    ) {
+      console.log('-----------------------------------------------'); 
+      console.log(`>> on card constructor`);
+      // console.log(this.card) --> undefined
     }
 
   ngOnInit(): void {
-    console.log(`currentList${this.listTitle}`);
+    console.log('-----------------------------------------------');
+    console.log('>>> on card ngOnInit');
+    console.log(`>>>> currentCard ${this.card.title}`);
+    console.log(`>>>> currentList ${this.card.list}`);
   }
 
   ngOnDestroy(){
-    console.log('task item onDestroy');
+    console.log('-----------------------------------------------');
+    console.log(`>> ${this.card.title} onDestroy`);
   }
 
   toggleEditMode(){
+    console.log('-----------------------------------------------');
+    console.log(`on toggleEditMode`);
     this.editMode = !this.editMode;
   }
 
   editCard(){
-    console.log('edit card - CARD');
+    console.log('-----------------------------------------------');
+    console.log(`>> on card editCard ${this.card.title}`);
     this.cardsService.editCard(
       this.card.id, 
       this.cardEditForm.value.title, 
@@ -51,15 +60,18 @@ export class CardComponent implements OnInit {
   }
 
   deleteCard(){
+    console.log('-----------------------------------------------');
+    console.log('>> on card deletCard');
+    console.log('>>>> calling deleteCard from service');
     this.cardsService.deleteCard(this.card.id).subscribe((c)=>{
       this.cardsService.cardListChanged.next(c);
     });
   }
 
   changeList(move:string){
-    console.log('change list - CARD');
-    console.log(`the old list is ${this.card.list}`);
-    console.log(`moving to ${move} list`);
+    console.log('-----------------------------------------------');
+    console.log('>> on card changeList');
+    console.log(`>>>> moving card from ${this.card.list} to ${move} list`);
 
     if(move === "next"){
       this.card.list = this.cardlists[(this.cardlists.indexOf(this.card.list))+1];

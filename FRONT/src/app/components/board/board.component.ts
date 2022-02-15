@@ -15,8 +15,8 @@ export class BoardComponent implements OnInit {
   cards!: Card[];
 
   constructor(private cardsService: CardsService) { 
-    console.log('construtor do board');
-    console.log(`all list titles ${this.allListTitles}`)
+    console.log('>> inside board constructor');
+    console.log(`>>>> all list titles ${this.allListTitles}`)
   }
 
   ngOnInit(): void {}

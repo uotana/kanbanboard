@@ -1,7 +1,7 @@
 <div class="card card-list border-0">
     <div class="card-body">
-        <h5 class="card-title mb-3">{{listTitle  | uppercase }}</h5>
-        <div *ngIf='listTitle == "todo"' class="mb-3">
+        <h5 class="card-title mb-3">{{taskListTitle  | uppercase }}</h5>
+        <div *ngIf='taskListTitle == "todo"' class="mb-3">
             <button class="large-btn" *ngIf='showAddCardButton; else showNewCard'
                 (click)="toggleAddCardButton()" 
                 >Adicionar tarefa</button>
@@ -29,6 +29,6 @@
                     </form>
                 </ng-template>
         </div>
-        <app-card *ngFor="let card of cards" [card]="card" [listTitle]="listTitle"></app-card>
+        <app-card *ngFor="let card of cards" [card]="card" [currentList]="taskListTitle"></app-card>
     </div>
 </div>
