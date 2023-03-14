@@ -1,4 +1,4 @@
-# kanban board (em desenvolvimento)
+# kanban board
 
 Este é um quadro de kanban simples que está sendo desenvolvido para exercitar o conhecimento adquirido ao longo dos módulos de frontend do curso de Web Full Stack da Let's Code. Abaixo segue as orientações para a elaboração do projeto.
 
